@@ -6547,12 +6547,12 @@
             const totalPoints = users.filter(u => !u.isAdmin).reduce((sum, user) => sum + user.points, 0);
             
             // 使用累积积分统计各段位用户数量
-            const activeUsers = users.filter(u => !u.isAdmin && u.totalPoints >= 1500).length;
-            const activeUser4 = users.filter(u => !u.isAdmin && u.totalPoints >= 1200 && u.totalPoints < 1500).length;
-            const activeUser3 = users.filter(u => !u.isAdmin && u.totalPoints >= 900 && u.totalPoints < 1200).length;
-            const activeUser2 = users.filter(u => !u.isAdmin && u.totalPoints >= 600 && u.totalPoints < 900).length;
-            const activeUser1 = users.filter(u => !u.isAdmin && u.totalPoints >= 300 && u.totalPoints < 600).length;
-            const activeUser0 = users.filter(u => !u.isAdmin && u.totalPoints < 300).length;
+            const activeUsers = users.filter(u => !u.isAdmin && u.totalPoints >= 1000).length;
+            const activeUser4 = users.filter(u => !u.isAdmin && u.totalPoints >= 800 && u.totalPoints < 999).length;
+            const activeUser3 = users.filter(u => !u.isAdmin && u.totalPoints >= 600 && u.totalPoints < 799).length;
+            const activeUser2 = users.filter(u => !u.isAdmin && u.totalPoints >= 400 && u.totalPoints < 599).length;
+            const activeUser1 = users.filter(u => !u.isAdmin && u.totalPoints >= 200 && u.totalPoints < 399).length;
+            const activeUser0 = users.filter(u => !u.isAdmin && u.totalPoints < 199).length;
             
             document.getElementById('totalUsers').textContent = totalUsers;
             document.getElementById('totalPoints').textContent = totalPoints;
