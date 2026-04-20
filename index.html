@@ -2341,42 +2341,64 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .login-section { flex-direction: column; }
-            .login-card:first-child { flex: 1; order: 1; }
-            .login-card:last-child { flex: 1; order: 2; transform: scale(1); opacity: 1; }
-            .admin-controls { flex-direction: column; }
-            .prizes-grid { grid-template-columns: 1fr; }
-            .achievements-grid { grid-template-columns: 1fr; }
-            .announcements-grid { grid-template-columns: 1fr; }
-            .users-table, .history-table, .prizes-table, .leaderboard-table { 
-                display: block; 
-                overflow-x: auto; 
-                font-size: 12px;
-            }
-            .tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-            .tab { flex: 1; min-width: 120px; text-align: center; font-size: 14px; padding: 10px 15px; }
-            .login-options { flex-direction: column; }
-            .data-management { flex-direction: column; }
-            .user-stats { grid-template-columns: repeat(2, 1fr); }
-            .leaderboard-container { flex-direction: column; }
-            .pie-chart { width: 200px; height: 200px; }
-            .achievement-notification { padding: 20px 25px; }
-            .achievement-notification h3 { font-size: 1.5rem; }
-            .achievement-notification p { font-size: 1rem; }
-            .stats-container { grid-template-columns: 1fr; }
-            .confirm-buttons { flex-direction: column; }
-            .redeem-item { flex-direction: column; gap: 10px; }
-            .announcement-header { flex-direction: column; align-items: flex-start; gap: 10px; }
-            .redeem-system-container { flex-direction: column; }
-            .ticket-content { width: 95%; max-width: 350px; padding: 15px; }
-            .ticket-print-area { max-width: 200px; } /* 移动端稍小 */
-            .header h1 { font-size: 1.8rem; }
-            .modal-content { padding: 20px; }
-            .barcode-input-group { flex-direction: column; }
-            .barcode-input-group input { width: 100%; }
-        }
+/* 高级管理页面通用优化 */
+.permission-item .perm-desc {
+    word-break: break-word;
+    white-space: normal;
+}
+.config-description {
+    word-break: break-word;
+}
+/* 操作日志表格单元格允许换行 */
+.log-table td {
+    white-space: normal;
+    word-break: break-word;
+}
+/* 热力图单元格内容居中 */
+.heatmap-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 补货建议卡片文字折行 */
+.restock-card {
+    word-break: break-word;
+}
+/* 云端同步日志区域滚动 */
+#syncLog {
+    word-break: break-all;
+}
 
+
+        /* 高级管理页面通用优化 */
+.permission-item .perm-desc {
+    word-break: break-word;
+    white-space: normal;
+}
+.config-description {
+    word-break: break-word;
+}
+/* 操作日志表格单元格允许换行 */
+.log-table td {
+    white-space: normal;
+    word-break: break-word;
+}
+/* 热力图单元格内容居中 */
+.heatmap-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 补货建议卡片文字折行 */
+.restock-card {
+    word-break: break-word;
+}
+/* 云端同步日志区域滚动 */
+#syncLog {
+    word-break: break-all;
+}
+
+        
         /* 过期票据行高亮 */
         .ticket-expired-row {
             background-color: rgba(231, 76, 60, 0.15) !important;
