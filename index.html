@@ -5222,49 +5222,6 @@
                 return this.getData('cachedIP') || '127.0.0.1';
             },
             
-            // ========== 安全哈希（积分熔断） ==========
-            computePointsHash(user) {
-                const data = user.id + ':' + user.points + ':' + (user.totalPoints || user.points) + ':' + (user.redeemCount || 0);
-                let hash = 0;
-                for (let i = 0; i < data.length; i++) {
-                    const char = data.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash |= 0;
-                }
-                return hash.toString(16);
-            },
-            
-            verifyPointsIntegrity(user) {
-                const expectedHash = user._pointsHash;
-                if (!expectedHash) return { valid: true, isNew: true };
-                const currentHash = this.computePointsHash(user);
-                return { valid: currentHash === expectedHash, isNew: false, expected: expectedHash, actual: currentHash };
-            },
-            
-            savePointsHash(user) {
-                user._pointsHash = this.computePointsHash(user);
-            },
-            
-            // ========== 锁定账户 ==========
-            lockAccount(userId, reason) {
-                const locked = this.getData('lockedAccounts') || [];
-                if (!locked.find(l => l.userId === userId)) {
-                    locked.unshift({ userId, reason, lockTime: new Date().toISOString() });
-                    this.setData('lockedAccounts', locked);
-                }
-            },
-            
-            unlockAccount(userId) {
-                let locked = this.getData('lockedAccounts') || [];
-                locked = locked.filter(l => l.userId !== userId);
-                this.setData('lockedAccounts', locked);
-            },
-            
-            isAccountLocked(userId) {
-                const locked = this.getData('lockedAccounts') || [];
-                return locked.some(l => l.userId === userId);
-            },
-            
             // ========== 归档管理 ==========
             archiveOldData(days) {
                 const archiveDate = Date.now() - (days * 24 * 60 * 60 * 1000);
